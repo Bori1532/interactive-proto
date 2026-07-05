@@ -1,0 +1,68 @@
+import type { Product } from '../types'
+
+export const PRODUCTS: Product[] = [
+  {
+    id: 'wonyeong-1',
+    queenId: 'wonyeong',
+    name: '금박 궁중 예법 필사 노트',
+    description: '전통 문양이 새겨진 고급 필기 노트. 일상의 질서를 정돈하는 데 어울립니다.',
+    url: 'https://www.kyobobook.co.kr/',
+    price: '₩28,000',
+  },
+  {
+    id: 'wonyeong-2',
+    queenId: 'wonyeong',
+    name: '매화 문양 비녀 세트',
+    description: '단정한 품격을 더해 주는 전통 비녀 액세서리 세트.',
+    url: 'https://www.coupang.com/',
+    price: '₩45,000',
+  },
+  {
+    id: 'inhyeon-1',
+    queenId: 'inhyeon',
+    name: '조선 시인전 선집',
+    description: '고전 시를 읽으며 마음의 평화를 찾는 이들을 위한 엄선 도서.',
+    url: 'https://www.kyobobook.co.kr/',
+    price: '₩18,500',
+  },
+  {
+    id: 'inhyeon-2',
+    queenId: 'inhyeon',
+    name: '한지 다도 세트',
+    description: '차 한 잔의 여유로 하루를 정리하는 프리미엄 다도 세트.',
+    url: 'https://www.coupang.com/',
+    price: '₩62,000',
+  },
+  {
+    id: 'myeongseong-1',
+    queenId: 'myeongseong',
+    name: '근대사 아카이브 도서',
+    description: '대한제국 개혁사를 다룬 심층 역사 서적. 통찰력 있는 독서에 추천.',
+    url: 'https://www.kyobobook.co.kr/',
+    price: '₩24,000',
+  },
+  {
+    id: 'myeongseong-2',
+    queenId: 'myeongseong',
+    name: '빈티지 회중시계',
+    description: '시간을 소중히 여기는 이들을 위한 클래식 회중시계.',
+    url: 'https://www.coupang.com/',
+    price: '₩89,000',
+  },
+  {
+    id: 'jang-1',
+    queenId: 'jang',
+    name: '전통 수묵화 붓 세트',
+    description: '감성을 캔버스에 담고 싶은 이들을 위한 수묵화 도구 세트.',
+    url: 'https://www.kyobobook.co.kr/',
+    price: '₩35,000',
+  },
+  {
+    id: 'jang-2',
+    queenId: 'jang',
+    name: '궁중 악보 아트 프린트',
+    description: '고궁의 선율을 담은 인테리어 아트 프린트.',
+    url: 'https://www.coupang.com/',
+    price: '₩52,000',
+  },
+]

@@ -1,6 +1,10 @@
 # Dependencies
 node_modules/
 
+# Next.js
+.next/
+out/
+
 # Build
 dist/
 
@@ -8,10 +12,6 @@ dist/
 .env
 .env.local
 .env.*.local
-
-# Raw processing files
-public/images/book-raw.jpg
-public/images/book-cutout.png
 
 # Logs
 *.log
@@ -28,3 +28,5 @@ Thumbs.db
 
 # TypeScript
 *.tsbuildinfo
+next-env.d.ts
+.vercel
