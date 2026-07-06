@@ -18,11 +18,11 @@ export const GA_EVENTS = {
   RETURN_HOME_CANCEL: 'return_home_cancel',
 } as const
 
-type GtagCommand = 'config' | 'event' | 'js' | 'set'
+type GtagFn = (...args: unknown[]) => void
 
 declare global {
   interface Window {
-    gtag?: (command: GtagCommand, targetId: string, params?: Record<string, unknown>) => void
+    gtag?: GtagFn
     dataLayer?: unknown[]
   }
 }
@@ -39,12 +39,25 @@ export function getResultCharacterParams(queenId: QueenId) {
   }
 }
 
+function invokeGtag(...args: unknown[]) {
+  if (typeof window === 'undefined') return
+
+  window.dataLayer = window.dataLayer ?? []
+
+  if (typeof window.gtag === 'function') {
+    window.gtag(...args)
+    return
+  }
+
+  // gtag 스크립트 로드 전에도 dataLayer에 적재 → 로드 후 자동 처리
+  window.dataLayer.push(args)
+}
+
 export function trackEvent(
   eventName: string,
   params?: Record<string, string | number | boolean>,
 ) {
-  if (typeof window === 'undefined' || !window.gtag) return
-  window.gtag('event', eventName, params)
+  invokeGtag('event', eventName, params ?? {})
 }
 
 /** 1. 매칭 캐릭터 확인 — GA4에서 result_character_id 기준 그룹화 시 캐릭터별 % 집계 */
@@ -108,7 +121,7 @@ export function trackReturnHomeCancel(queenId: QueenId) {
 }
 
 export function trackPageView(path: string, title?: string) {
-  if (typeof window === 'undefined' || !window.gtag) return
+  if (typeof window === 'undefined') return
 
   trackEvent(GA_EVENTS.PAGE_VIEW, {
     page_path: path,
